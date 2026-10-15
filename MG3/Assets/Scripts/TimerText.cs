@@ -13,16 +13,21 @@ public class TimerText : MonoBehaviour
     // This method runs ONCE, when the GAME BEGINS. It is called by Unity.
     // Uncomment this method and fill in the method name.
     //
-    //private void ???()
-    //{
+    private void Start()
+    {
+        _gameTimer.BeginTimer(_maxGameTime);
             // Inside this method, CALL the BeginTimer method on _gameTimer.
             // Pass in _maxGameTime as the ARGUMENT.
-    //}
+    }
     // STEP 8 -----------------------------------------------------------------
 
     // ------------------------------------------------------------------------
     private void Update()
     {
+        if (_gameTimer.IsFinished())
+        {
+            GameOver();
+        }
         // STEP 9 -------------------------------------------------------------
         // Inside this Update method, we're going to CHECK IF OUR TIMER RAN OUT.
         // IF it's done, CALL the GameOver method.
